@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hogwarts Encyclopedia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Hogwarts Encyclopedia</h1>
+    <p>Explore characters from the wizarding world</p>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input type="text" id="search-input" placeholder="Search by name..." />
+
+      <select id="house-filter">
+        <option value="all">All Houses</option>
+        <option value="Gryffindor">Gryffindor</option>
+        <option value="Slytherin">Slytherin</option>
+        <option value="Hufflepuff">Hufflepuff</option>
+        <option value="Ravenclaw">Ravenclaw</option>
+      </select>
+
+      <select id="sort-select">
+        <option value="">Default</option>
+        <option value="asc">Name A → Z</option>
+        <option value="desc">Name Z → A</option>
+      </select>
+    </div>
+
+    <p id="count"></p>
+
+    <div id="loading">Loading characters...</div>
+
+    <div id="characters-container"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
