@@ -40,3 +40,24 @@ h1 {
   color: gray;
   margin: 0;
 }
+
+#controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+#controls input,
+#controls select {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+}
+
+#search-input {
+  flex: 1;
+  min-width: 160px;
+}

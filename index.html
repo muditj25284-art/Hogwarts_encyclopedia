@@ -10,6 +10,24 @@
 
   <h1>Hogwarts Encyclopedia</h1>
 
+  <div id="controls">
+    <input type="text" id="search-input" placeholder="Search by name...">
+    
+    <select id="house-filter">
+      <option value="">All Houses</option>
+      <option value="Gryffindor">Gryffindor</option>
+      <option value="Slytherin">Slytherin</option>
+      <option value="Ravenclaw">Ravenclaw</option>
+      <option value="Hufflepuff">Hufflepuff</option>
+    </select>
+
+    <select id="sort-order">
+      <option value="default">Default Order</option>
+      <option value="az">Name: A to Z</option>
+      <option value="za">Name: Z to A</option>
+    </select>
+  </div>
+
   <div id="cards-section"></div>
 
   <script src="script.js"></script>
