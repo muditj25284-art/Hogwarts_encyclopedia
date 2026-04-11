@@ -51,7 +51,14 @@ function renderCards() {
 
   section.innerHTML = ''
 
-  result.forEach(character => {
+  const count = document.getElementById('results-count')
+  count.innerText = 'Showing ' + result.length + ' characters'
+
+  if (result.length === 0) {
+  section.innerHTML = '<p>No characters found.</p>'
+  }
+
+  result.map(character => {
 
     const card = document.createElement('div')
     card.className = 'character-card'
