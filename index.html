@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hogwarts Encyclopedia</title>
+  <!-- special font -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,9 +12,11 @@
 
   <h1>Hogwarts Encyclopedia</h1>
 
+  <!-- all controls -->
   <div id="controls">
-    <input type="text" id="search-input" placeholder="Search by name...">
+    <input type="text" id="name-search" placeholder="Search by name...">
     
+    <!-- house options -->
     <select id="house-filter">
       <option value="">All Houses</option>
       <option value="Gryffindor">Gryffindor</option>
@@ -22,6 +25,7 @@
       <option value="Hufflepuff">Hufflepuff</option>
     </select>
 
+    <!-- name sorting -->
     <select id="sort-order">
       <option value="default">Default Order</option>
       <option value="az">Name: A to Z</option>
@@ -29,8 +33,10 @@
     </select>
   </div>
 
-  <p id="results-count"></p>
+  <!-- matching character count -->
+  <p id="match-count"></p>
 
+  <!-- all character cards -->
   <div id="cards-section"></div>
 
   <script src="script.js"></script>

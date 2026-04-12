@@ -6,6 +6,7 @@ let allCharacters = []
 
 section.innerHTML = "Loading..."
 
+// fetching api data
 fetch(api)
   .then(res => res.json())
   .then(data => {
@@ -21,48 +22,56 @@ fetch(api)
 
 function renderCards() {
 
-  const searchText = document.getElementById('search-input').value.toLowerCase()
+  const typedName = document.getElementById('name-search').value.toLowerCase()
   const selectedHouse = document.getElementById('house-filter').value
   const sortOrder = document.getElementById('sort-order').value
 
-  let result = allCharacters.filter(character => {
-    return character.name.toLowerCase().includes(searchText)
+  // filter by name
+  let matches = allCharacters.filter(character => {
+    return character.name.toLowerCase().includes(typedName)
   })
 
+  // filter by house
   if (selectedHouse !== '') {
-    result = result.filter(character => {
+    matches = matches.filter(character => {
       return character.house === selectedHouse
     })
   }
 
+  // sorting alphabetically
   if (sortOrder === 'az') {
-    result.sort((a, b) => {
+    matches.sort((a, b) => {
       if (a.name < b.name) return -1
       if (a.name > b.name) return 1
       return 0
     })
   } else if (sortOrder === 'za') {
-    result.sort((a, b) => {
+    matches.sort((a, b) => {
       if (a.name < b.name) return 1
       if (a.name > b.name) return -1
       return 0
     })
   }
 
+  // clearing previous matchess
   section.innerHTML = ''
 
-  const count = document.getElementById('results-count')
-  count.innerText = 'Showing ' + result.length + ' characters'
+  // shows count of matching characters
+  const count = document.getElementById('match-count')
+  count.innerText = 'Showing ' + matches.length + ' characters'
 
-  if (result.length === 0) {
+  // message if no characters match
+  if (matches.length === 0) {
   section.innerHTML = '<p>No characters found.</p>'
   }
 
-  result.map(character => {
+  matches.map(character => {
 
+    // creating card
     const card = document.createElement('div')
     card.className = 'character-card'
 
+    // image
     if (character.image) {
       const photo = document.createElement('img')
       photo.src = character.image
@@ -70,25 +79,31 @@ function renderCards() {
       card.appendChild(photo)
     }
 
+    // name
     const name = document.createElement('h3')
     name.innerText = character.name
 
+    // house
     const house = document.createElement('p')
     house.innerText = character.house || 'No house'
 
+    // species
     const species = document.createElement('p')
     species.innerText = character.species
 
+    // putting all in the card
     card.appendChild(name)
     card.appendChild(house)
     card.appendChild(species)
 
+    // putting card in section
     section.appendChild(card)
 
   })
 
 }
 
-document.getElementById('search-input').addEventListener('input', renderCards)
+// re-renders cards after every input change
+document.getElementById('name-search').addEventListener('input', renderCards)
 document.getElementById('house-filter').addEventListener('change', renderCards)
 document.getElementById('sort-order').addEventListener('change', renderCards)
